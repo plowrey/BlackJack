@@ -35,6 +35,8 @@ print('Your Cards are:', '|', c1, '|', c2, '|')
 tot = c1 + c2
 if tot > 21:
     print('Bust! Start Over')
+elif tot == 21:
+    print('BlackJack! You Win!')
 else:
     print('Your Total is', tot)
 
@@ -58,9 +60,9 @@ print('______________________________________')
 #code to find out what dealers hidden card is
 dealer_hidden = random.randint(1, 13)
 print('Dealers Cards are', '|', dealer_card1, '|', dealer_hidden, '|')
-next_card = random.randint(1,13)
 dealer_total = dealer_card1 + dealer_hidden
 while dealer_total < 17:
+    next_card = random.randint(1,13)
     print('Dealer Hit- The Card is: ', '|', next_card, '|')
     dealer_total = dealer_total + next_card
 print('Dealers Total is', dealer_total)
@@ -69,9 +71,9 @@ print('Dealers Total is', dealer_total)
 #code determines who has won the game
 if dealer_total > 21:
         print('The Dealer has busted! You Win!')
-elif dealer_total > tot:
-    print('Dealer has', dealer_total, 'You Lose!')
 elif dealer_total < tot:
+    print('Dealer has', dealer_total, 'You Lose!')
+elif dealer_total > tot:
     print('You have', tot, 'You Win!')
 else:
     print('You have', tot,',' 'Dealer has', dealer_total, 'Push!')
